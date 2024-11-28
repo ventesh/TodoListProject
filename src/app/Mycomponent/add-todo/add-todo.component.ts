@@ -13,15 +13,23 @@ export class AddTodoComponent {
   title!: string; 
   desc!: string;
 
+  isModelOpen = false;
+
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
+
+  toggleModel(){
+    this.isModelOpen = !this.isModelOpen;
+  }
 
   onSubmit(){
     const todo = {
-      sno:6,
+      sno: Math.random(),
       title: this.title,
       desc: this.desc,
       active: true
     }
+    this.title='';
+    this.desc='';
     this.todoAdd.emit(todo);
     console.log(this.title , this.desc);
   }

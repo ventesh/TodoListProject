@@ -1,11 +1,20 @@
-<div class="my-3">
-    <h5 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h5>
-    <p [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
-    <div class="from-group from-check">
-        <input type="checkbox" class="from-check-input" id="todo{{i}}" (click)="onChackboxClick(todo)"
-            [checked]="!todo.active">&nbsp;
-        <label class="from-check-label" for="todo{{i}}">Mark as Done</label>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <table>
+                    <td> <h5 class="card-text" [ngClass]="{'strike': !todo.active}">{{todo.title}}</h5></td>
+                    <td class="text-end"><button class="btn btn-sm btn-danger" (click)="OnClick(todo)"><i class="fa fa-trash-o" style="font-size: 18px;"></i></button></td>
+                </table>
+                <p class="card-text" [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
+                <div class="from-group from-check">
+                    <input type="checkbox" class="from-check-input" id="todo{{i}}" (click)="onChackboxClick(todo)"
+                        [checked]="!todo.active">&nbsp;
+                    <label class="from-check-label" for="todo{{i}}">Mark as Done</label>
+                </div>
+                <br>
+                
+            </div>
+        </div>
     </div>
-    <br>
-    <button class="btn btn-sm btn-danger" (click)="OnClick(todo)">Delete</button>
 </div>
